@@ -21,10 +21,13 @@ jkat.getGrade("おたま"); // --> -1
 - `JKAT`: 教育指導要領 / 日本漢字能力検定 (10級〜1級)
 - `Unicode1Radical`: Unicode 1.1 の康熙字典 214 部首コード
 - `Unicode1RadicalStrokes`: Unicode 1.1 の康熙字典 214 部首の画数データ
+- `Unicode1UnihanStrokes`: Unicode 1.1 の Unihan_IRGSources.txt
+  に基づく画数データ
 - `JoyoRadical`: 常用漢字の康熙字典 214 部首コード
 - `JoyoRadicalStrokes`: 常用漢字の康熙字典 214 部首の画数データ
 - `JoyoStrokes`: 常用漢字の画数データ
 - `JIS4UnihanStrokes`: JIS 第 4 水準の Unihan_IRGSources.txt に基づく画数データ
+- `UnihanStrokes`: Unihan_IRGSources.txt に基づく画数データ
 
 ## License
 

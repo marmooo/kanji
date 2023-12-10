@@ -10,6 +10,8 @@ import {
   Kanji,
   Unicode1Radical,
   Unicode1RadicalStrokes,
+  Unicode1UnihanStrokes,
+  UnihanStrokes,
 } from "./mod.js";
 
 Deno.test("JIS code check", () => {
@@ -52,6 +54,14 @@ Deno.test("Unicode1 radical strokes check", () => {
     });
   });
 });
+Deno.test("Unicode1 Unihan strokes check", () => {
+  const strokes = new Kanji(Unicode1UnihanStrokes);
+  Unicode1UnihanStrokes.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, strokes.getGrade(kanji));
+    });
+  });
+});
 Deno.test("Joyo strokes check", () => {
   const strokes = new Kanji(JoyoStrokes);
   JoyoStrokes.forEach((list, grade) => {
@@ -79,6 +89,14 @@ Deno.test("Joyo radical strokes check", () => {
 Deno.test("JIS4 Unihan strokes check", () => {
   const strokes = new Kanji(JIS4UnihanStrokes);
   JIS4UnihanStrokes.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, strokes.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unihan strokes check", () => {
+  const strokes = new Kanji(UnihanStrokes);
+  UnihanStrokes.forEach((list, grade) => {
     list.forEach((kanji) => {
       assertEquals(grade, strokes.getGrade(kanji));
     });
