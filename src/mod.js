@@ -10,3 +10,4 @@ export { JoyoRadical } from "./joyo-radical.js";
 export { JoyoRadicalStrokes } from "./joyo-radical-strokes.js";
 export { JIS4UnihanStrokes } from "./jis4-unihan-strokes.js";
 export { UnihanStrokes } from "./unihan-strokes.js";
+export { Unicode } from "./unicode.js";

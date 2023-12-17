@@ -28,6 +28,7 @@ jkat.getGrade("おたま"); // --> -1
 - `JoyoStrokes`: 常用漢字の画数データ
 - `JIS4UnihanStrokes`: JIS 第 4 水準の Unihan_IRGSources.txt に基づく画数データ
 - `UnihanStrokes`: Unihan_IRGSources.txt に基づく画数データ
+- `Unicode`: CJK 統合漢字 (URO〜Ext.I)
 
 ## License
 

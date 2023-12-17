@@ -8,6 +8,7 @@ import {
   JoyoRadicalStrokes,
   JoyoStrokes,
   Kanji,
+  Unicode,
   Unicode1Radical,
   Unicode1RadicalStrokes,
   Unicode1UnihanStrokes,
@@ -99,6 +100,14 @@ Deno.test("Unihan strokes check", () => {
   UnihanStrokes.forEach((list, grade) => {
     list.forEach((kanji) => {
       assertEquals(grade, strokes.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unicode check", () => {
+  const unicode = new Kanji(Unicode);
+  Unicode.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, unicode.getGrade(kanji));
     });
   });
 });
