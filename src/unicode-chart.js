@@ -10,6 +10,8 @@ export const URO1 = range(Number(0x4E00), Number(0x62FF) + 1);
 export const URO2 = range(Number(0x6300), Number(0x77FF) + 1);
 export const URO3 = range(Number(0x7800), Number(0x8CFF) + 1);
 export const URO4 = range(Number(0x8D00), Number(0x9FFF) + 1);
+export const CI = range(Number(0xF900), Number(0xFAD9) + 1);
+export const CIS = range(Number(0x2F800), Number(0x2FA1D) + 1);
 export const ExtA = range(Number(0x3400), Number(0x4DBF) + 1);
 export const ExtB1 = range(Number(0x20000), Number(0x215FF) + 1);
 export const ExtB2 = range(Number(0x21600), Number(0x230FF) + 1);
@@ -31,6 +33,8 @@ export const UnicodeChart = [
   URO2,
   URO3,
   URO4,
+  CI,
+  CIS,
   ExtA,
   ExtB1,
   ExtB2,
