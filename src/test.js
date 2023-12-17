@@ -12,6 +12,7 @@ import {
   Unicode1Radical,
   Unicode1RadicalStrokes,
   Unicode1UnihanStrokes,
+  UnicodeChart,
   UnihanStrokes,
 } from "./mod.js";
 
@@ -108,6 +109,14 @@ Deno.test("Unicode check", () => {
   Unicode.forEach((list, grade) => {
     list.forEach((kanji) => {
       assertEquals(grade, unicode.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unicode chart check", () => {
+  const unicodeChart = new Kanji(UnicodeChart);
+  UnicodeChart.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, unicodeChart.getGrade(kanji));
     });
   });
 });
