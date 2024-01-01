@@ -1,7 +1,6 @@
 import { assertEquals } from "https://deno.land/std/assert/mod.ts";
 import {
   Jinmei,
-  JIS4UnihanStrokes,
   JISCode,
   JKAT,
   JoyoRadical,
@@ -9,11 +8,10 @@ import {
   JoyoStrokes,
   Kanji,
   Unicode,
-  Unicode1Radical,
-  Unicode1RadicalStrokes,
-  Unicode1UnihanStrokes,
   UnicodeChart,
-  UnihanStrokes,
+  UnicodeRadical,
+  UnicodeRadicalStrokes,
+  UnicodeStrokes,
 } from "./mod.js";
 
 Deno.test("JIS code check", () => {
@@ -37,30 +35,6 @@ Deno.test("JKAT check", () => {
   JKAT.forEach((list, grade) => {
     list.forEach((kanji) => {
       assertEquals(grade, jkat.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unicode1 radical check", () => {
-  const radicals = new Kanji(Unicode1Radical);
-  Unicode1Radical.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, radicals.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unicode1 radical strokes check", () => {
-  const strokes = new Kanji(Unicode1RadicalStrokes);
-  Unicode1RadicalStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unicode1 Unihan strokes check", () => {
-  const strokes = new Kanji(Unicode1UnihanStrokes);
-  Unicode1UnihanStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
     });
   });
 });
@@ -88,22 +62,6 @@ Deno.test("Joyo radical strokes check", () => {
     });
   });
 });
-Deno.test("JIS4 Unihan strokes check", () => {
-  const strokes = new Kanji(JIS4UnihanStrokes);
-  JIS4UnihanStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unihan strokes check", () => {
-  const strokes = new Kanji(UnihanStrokes);
-  UnihanStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
-});
 Deno.test("Unicode check", () => {
   const unicode = new Kanji(Unicode);
   Unicode.forEach((list, grade) => {
@@ -117,6 +75,30 @@ Deno.test("Unicode chart check", () => {
   UnicodeChart.forEach((list, grade) => {
     list.forEach((kanji) => {
       assertEquals(grade, unicodeChart.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unicode radical check", () => {
+  const radicals = new Kanji(UnicodeRadical);
+  UnicodeRadical.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, radicals.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unicode radical strokes check", () => {
+  const strokes = new Kanji(UnicodeRadicalStrokes);
+  UnicodeRadicalStrokes.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, strokes.getGrade(kanji));
+    });
+  });
+});
+Deno.test("Unicode strokes check", () => {
+  const strokes = new Kanji(UnicodeStrokes);
+  UnicodeStrokes.forEach((list, grade) => {
+    list.forEach((kanji) => {
+      assertEquals(grade, strokes.getGrade(kanji));
     });
   });
 });

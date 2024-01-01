@@ -1,10 +1,9 @@
 import { Kanji } from "./kanji.js";
 import { Joyo } from "./jinmei.js";
-import { Unicode1Radical } from "./unicode1-radical.js";
+import { UnicodeRadical } from "./unicode-radical.js";
 
 const joyo = new Kanji([Joyo]);
-export const JoyoRadical = JSON.parse(JSON.stringify(Unicode1Radical));
+export const JoyoRadical = JSON.parse(JSON.stringify(UnicodeRadical));
 JoyoRadical.filter((list, grade) => {
   JoyoRadical[grade] = list.filter((kanji) => joyo.getGrade(kanji) >= 0);
 });
-JoyoRadical[29].push("𠮟");
