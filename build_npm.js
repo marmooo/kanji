@@ -10,7 +10,7 @@ await build({
   },
   package: {
     name: "@marmooo/kanji",
-    version: "0.0.7",
+    version: "0.0.8",
     description: "Get various grade information about kanji",
     license: "MIT",
     main: "mod.js",
