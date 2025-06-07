@@ -45,9 +45,10 @@ export const JKAT2 = Array.from(
 function setDict(list) {
   const dict = {};
   for (let grade = 0; grade < list.length; grade++) {
-    list[grade].forEach((kanji) => {
-      dict[kanji] = grade;
-    });
+    const kanjis = list[grade];
+    for (let i = 0; i < kanjis.length; i++) {
+      dict[kanjis[i]] = grade;
+    }
   }
   return dict;
 }
@@ -68,23 +69,33 @@ function setJoyoDict() {
   return setDict(list);
 }
 
+// function setJKAT1s() {
+//   const result = [];
+//   JISCode1.forEach((kanji) => {
+//     if (kanji in joyoDict === false) {
+//       result.push(kanji);
+//     }
+//   });
+//   return result;
+// }
+
 function setJKAT1s() {
   const result = [];
-  JISCode1.forEach((kanji) => {
-    if (kanji in joyoDict === false) {
-      result.push(kanji);
-    }
-  });
+  for (let i = 0; i < JISCode1.length; i++) {
+    const kanji = JISCode1[i];
+    if (kanji in joyoDict !== false) continue;
+    result.push(kanji);
+  }
   return result;
 }
 
 function setJKAT1() {
   const result = [];
-  JISCode2.forEach((kanji) => {
-    if (kanji in joyoDict === false) {
-      result.push(kanji);
-    }
-  });
+  for (let i = 0; i < JISCode2.length; i++) {
+    const kanji = JISCode2[i];
+    if (kanji in joyoDict !== false) continue;
+    result.push(kanji);
+  }
   return result;
 }
 
