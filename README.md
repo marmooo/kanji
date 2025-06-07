@@ -7,7 +7,6 @@ Get various grade information about kanji.
 ```
 import { Kanji, JKAT } from "@marmooo/kanji";
 
-const kanji = new Kanji(list);
 const jkat = new Kanji(JKAT); // 教育指導要領 / 日本漢字能力検定
 jkat.getGrade("学校");   // --> 0
 jkat.getGrade("漢");     // --> 2
