@@ -32,3 +32,7 @@ jkat.getGrade("おたま"); // --> -1
 ## License
 
 MIT
+
+## Attribution
+
+- [Unihan Database](https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip)
