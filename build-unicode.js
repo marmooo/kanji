@@ -1,4 +1,4 @@
-import { TextLineStream } from "https://deno.land/std/streams/mod.ts";
+import { TextLineStream } from "@std/streams";
 
 // https://www.unicode.org/charts/PDF/U3400.pdf
 // https://www.unicode.org/charts/PDF/U4E00.pdf
