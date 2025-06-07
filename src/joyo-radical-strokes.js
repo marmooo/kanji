@@ -3,9 +3,7 @@ import { Joyo } from "./jinmei.js";
 import { UnicodeRadicalStrokes } from "./unicode-radical-strokes.js";
 
 const joyo = new Kanji([Joyo]);
-export const JoyoRadicalStrokes = JSON.parse(
-  JSON.stringify(UnicodeRadicalStrokes),
-);
+export const JoyoRadicalStrokes = structuredClone(UnicodeRadicalStrokes);
 JoyoRadicalStrokes.filter((list, grade) => {
   JoyoRadicalStrokes[grade] = list.filter((kanji) => joyo.dict[kanji]);
 });
