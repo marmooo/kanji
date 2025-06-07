@@ -236,7 +236,7 @@ async function build() {
         if (value.includes(" ")) {
           console.log(line);
           strokes = strokesPatchDB[kanji];
-          if (strokes === undefined) console.log(`error: ${codeStr}`);
+          if (strokes === undefined) console.log(`strokes error: ${codeStr}`);
         } else {
           strokes = Number(value);
         }
@@ -254,7 +254,7 @@ async function build() {
         if (value.includes(" ")) {
           console.log(line);
           radical = radicalPatchDB[kanji];
-          if (radical === undefined) console.log(`error: ${codeStr}`);
+          if (radical === undefined) console.log(`radical error: ${codeStr}`);
         } else {
           radical = parseInt(value.split(".")[0]) - 1;
         }
@@ -280,7 +280,9 @@ function buildRadical(radicalDB) {
 
 function buildStrokes(strokesDB) {
   let result = "";
-  const maxStrokes = Math.max(...Array.from(Object.keys(strokesDB)));
+  const strokes = Array.from(Object.keys(strokesDB))
+    .filter((x) => x !== "undefined").map((x) => Number(x));
+  const maxStrokes = Math.max(...strokes);
   const arr = new Array(maxStrokes);
   for (let i = 0; i <= maxStrokes; i++) {
     const name = `UnicodeStrokes${i}`;
