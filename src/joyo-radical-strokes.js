@@ -7,5 +7,5 @@ export const JoyoRadicalStrokes = JSON.parse(
   JSON.stringify(UnicodeRadicalStrokes),
 );
 JoyoRadicalStrokes.filter((list, grade) => {
-  JoyoRadicalStrokes[grade] = list.filter((kanji) => joyo.getGrade(kanji) >= 0);
+  JoyoRadicalStrokes[grade] = list.filter((kanji) => joyo.dict[kanji]);
 });

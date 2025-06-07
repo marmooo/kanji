@@ -7,18 +7,30 @@ export class Kanji {
   setDict(list) {
     const dict = {};
     for (let grade = 0; grade < list.length; grade++) {
-      list[grade].forEach((kanji) => {
-        dict[kanji] = grade;
-      });
+      const kanjis = list[grade];
+      for (let i = 0; i < kanjis.length; i++) {
+        const kanji = kanjis[i];
+        if (dict[kanji]) {
+          dict[kanji].push(grade);
+        } else {
+          dict[kanji] = [grade];
+        }
+      }
     }
     return dict;
   }
 
   getGrade(word) {
-    const grades = Array.from(word).map((kanji) => {
-      const grade = this.dict[kanji];
-      return grade ?? -1;
-    });
-    return Math.max(...grades);
+    const arr = Array.from(word);
+    let max = -1;
+    for (let i = 0; i < arr.length; i++) {
+      const kanji = arr[i];
+      const grades = this.dict[kanji];
+      if (!grades) continue;
+      for (let j = 0; j < grades.length; j++) {
+        if (max < grades[j]) max = grades[j];
+      }
+    }
+    return max;
   }
 }
