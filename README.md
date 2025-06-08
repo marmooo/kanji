@@ -5,12 +5,18 @@ Get various grade information about kanji.
 ## Usage
 
 ```
-import { Kanji, JKAT } from "@marmooo/kanji";
+import { Kanji, JKAT, UnicodeRadical, UnicodeStrokes } from "@marmooo/kanji";
 
 const jkat = new Kanji(JKAT); // 教育指導要領 / 日本漢字能力検定
 jkat.getGrade("学校");   // --> 0
 jkat.getGrade("漢");     // --> 2
 jkat.getGrade("おたま"); // --> -1
+
+const radical = new Kanji(UnicodeRadical);
+const strokes = new Kanji(UnicodeStrokes);
+jkat.dict["漢"];    // --> [2]
+radical.dict["䁀"]; // --> [71, 108]
+strokes.dict["䁀"]; // --> [12]
 ```
 
 ### Supported list
