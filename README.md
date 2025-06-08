@@ -28,6 +28,12 @@ jkat.getGrade("おたま"); // --> -1
   部首の画数データ
 - `UnicodeStrokes`: Unihan_IRGSources.txt に基づく画数データ
 
+## Build
+
+```
+deno task build
+```
+
 ## License
 
 MIT
