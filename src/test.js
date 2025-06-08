@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assert, assertEquals } from "@std/assert";
 import {
   Jinmei,
   JISCode,
@@ -14,91 +14,64 @@ import {
   UnicodeStrokes,
 } from "./mod.js";
 
+function checkDict(arr) {
+  const kanji = new Kanji(arr);
+  for (let grade = 0; grade < arr.length; grade++) {
+    const list = arr[grade];
+    for (let i = 0; i < list.length; i++) {
+      const char = list[i];
+      const answers = kanji.dict[char];
+      assert(answers.includes(grade));
+    }
+  }
+}
+
+function checkGrade(arr) {
+  const kanji = new Kanji(arr);
+  for (let grade = 0; grade < arr.length; grade++) {
+    const list = arr[grade];
+    for (let i = 0; i < list.length; i++) {
+      const char = list[i];
+      assertEquals(grade, kanji.getGrade(char));
+    }
+  }
+}
+
 Deno.test("JIS code check", () => {
-  const jisCode = new Kanji(JISCode);
-  JISCode.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, jisCode.getGrade(kanji));
-    });
-  });
+  checkDict(JISCode);
+  checkGrade(JISCode);
 });
 Deno.test("Jinmei check", () => {
-  const jinmei = new Kanji(Jinmei);
-  Jinmei.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, jinmei.getGrade(kanji));
-    });
-  });
+  checkDict(Jinmei);
+  checkGrade(Jinmei);
 });
 Deno.test("JKAT check", () => {
-  const jkat = new Kanji(JKAT);
-  JKAT.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, jkat.getGrade(kanji));
-    });
-  });
+  checkDict(JKAT);
+  checkGrade(JKAT);
 });
 Deno.test("Joyo strokes check", () => {
-  const strokes = new Kanji(JoyoStrokes);
-  JoyoStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
+  checkDict(JoyoStrokes);
 });
 Deno.test("Joyo radical check", () => {
-  const radicals = new Kanji(JoyoRadical);
-  JoyoRadical.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, radicals.getGrade(kanji));
-    });
-  });
+  checkDict(JoyoRadical);
 });
 Deno.test("Joyo radical strokes check", () => {
-  const strokes = new Kanji(JoyoRadicalStrokes);
-  JoyoRadicalStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
+  checkDict(JoyoRadicalStrokes);
 });
 Deno.test("Unicode check", () => {
-  const unicode = new Kanji(Unicode);
-  Unicode.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, unicode.getGrade(kanji));
-    });
-  });
+  checkDict(Unicode);
+  checkGrade(Unicode);
 });
 Deno.test("Unicode chart check", () => {
-  const unicodeChart = new Kanji(UnicodeChart);
-  UnicodeChart.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, unicodeChart.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unicode radical check", () => {
-  const radicals = new Kanji(UnicodeRadical);
-  UnicodeRadical.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, radicals.getGrade(kanji));
-    });
-  });
-});
-Deno.test("Unicode radical strokes check", () => {
-  const strokes = new Kanji(UnicodeRadicalStrokes);
-  UnicodeRadicalStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
+  checkDict(UnicodeChart);
+  checkGrade(UnicodeChart);
 });
 Deno.test("Unicode strokes check", () => {
-  const strokes = new Kanji(UnicodeStrokes);
-  UnicodeStrokes.forEach((list, grade) => {
-    list.forEach((kanji) => {
-      assertEquals(grade, strokes.getGrade(kanji));
-    });
-  });
+  checkDict(UnicodeStrokes);
+});
+Deno.test("Unicode radical check", () => {
+  checkDict(UnicodeRadical);
+});
+Deno.test("Unicode radical strokes check", () => {
+  checkDict(UnicodeRadicalStrokes);
 });
