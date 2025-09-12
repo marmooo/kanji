@@ -27,8 +27,8 @@ strokes.dict["䁀"]; // --> [12]
 - `JoyoRadical`: 常用漢字の康熙字典 214 部首コード
 - `JoyoRadicalStrokes`: 常用漢字の康熙字典 214 部首の画数データ
 - `JoyoStrokes`: 常用漢字の画数データ
-- `Unicode`: CJK 統合漢字 (URO〜Ext.I)
-- `UnicodeChart`: CJK 統合漢字 (URO〜Ext.I)
+- `Unicode`: Unicode 17.0 CJK 統合漢字 (URO〜Ext.J)
+- `UnicodeChart`: Unicode 17.0 CJK 統合漢字 (URO〜Ext.J)
 - `UnicodeRadical`: Unihan_IRGSources.txt に基づく康熙字典 214 部首コード
 - `UnicodeRadicalStrokes`: Unihan_IRGSources.txt に基づく康熙字典 214
   部首の画数データ

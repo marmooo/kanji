@@ -11,6 +11,7 @@ import { TextLineStream } from "@std/streams";
 // https://www.unicode.org/charts/PDF/U2F800.pdf
 // https://www.unicode.org/charts/PDF/U30000.pdf
 // https://www.unicode.org/charts/PDF/U31350.pdf
+// https://www.unicode.org/charts/PDF/U323B0.pdf
 // https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip
 // https://www.unicode.org/reports/tr38/index.html#kTotalStrokes
 // https://www.unicode.org/reports/tr38/index.html#kRSUnicode
